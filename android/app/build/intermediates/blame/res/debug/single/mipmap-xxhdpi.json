@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/joao/Documents/ReactNative/TabacadasPT/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/joao/Documents/ReactNative/TabacadasPT/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/joao/Documents/ReactNative/tabacadasApp/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/joao/Documents/ReactNative/tabacadasApp/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    }
+]
