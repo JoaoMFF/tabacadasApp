@@ -1,53 +1,74 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
-} from 'react-native';
+  View,
+  TouchableHighlight,
+  Image
+} from "react-native";
+import { StackNavigator } from 'react-navigation';
+import HomeScreen from './homeScreen/homeScreen';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 100,
+    //justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fcf9f2"
+  },
+
+  button: {
+    height: 40,
+    width: 150,
+    backgroundColor: "#4884e2",
+    borderRadius: 5,
+  },
+
+  logo: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    height: 200,
+    width: 200,
+    marginBottom:180,
+  },
+
+  text: {
+    marginTop: 9,
+    fontSize: 15,
+    alignSelf: 'center',
+    fontWeight: '700',
+    textAlign: 'center',
+    color: 'white',
+  }
+});
 
 export default class TabacadasPT extends Component {
+  static navigationOptions = {
+    header: null
+  };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <Image
+          style= { styles.logo}
+          source={
+            require("./img/logo.png")
+          }
+        />
+        <TouchableHighlight style={styles.button} onPress={() => navigate('Home')}>
+          <Text style={styles.text}>Login</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+const SimpleApp = StackNavigator({
+  Login: { screen: TabacadasPT },
+  Home: { screen: HomeScreen },
 });
 
-AppRegistry.registerComponent('TabacadasPT', () => TabacadasPT);
+AppRegistry.registerComponent("TabacadasPT", () => SimpleApp);
